@@ -1,10 +1,18 @@
 # simple-mac-terminal-reminder
 
-A simple Python script that generates a timed reminder from your terminal. Creates a system notification using AppleScript (which will appear over other windows) once the time is up.
+A simple Python script that allows you to generate a custom MacOS system notification which will display after an input time. The reminder runs in a terminal and can be cancelled with Ctrl+C.
 
-Just input a timer duration and message:
+## Usage
+- Input a timer duration and reminder message
 
-This can be via command line arguments:
+Via an interactive prompt:
+```bash
+$ remind
+Enter time (e.g., '5' for 5 minutes, '5m30s', '30s'): 15
+Enter reminder message: Check the oven!
+```
+
+or command line arguments:
 ```bash
 # Just time (will prompt for message)
 $ remind 15
@@ -13,21 +21,7 @@ $ remind 15
 $ remind 15m "Check the oven!"
 ```
 
-Or an interactive prompt:
-```bash
-$ remind
-Enter time (e.g., '5' for 5 minutes, '5m30s', '30s'): 15
-Enter reminder message: Check the oven!
-```
-
-While the reminder is running, you'll see:
-- A progress bar showing elapsed time
-- Remaining time in MM:SS format
-- Target completion time
-- Terminal title updates with reminder info
-- Controls reminder (Ctrl+C to cancel)
-
-Example:
+This will create a display in your terminal with a progress bar:
 ```
 ──────────────────────────────────────────────────────
 
@@ -44,25 +38,30 @@ Press Ctrl+C to cancel
 
 ## Installation
 
-1. Clone the repo:
-```bash
-git clone https://github.com/Dillon-Z-Dong/simple-mac-terminal-reminder.git
-```
+Copy and paste these commands into your terminal:
 
-2. Make the script executable:
 ```bash
-chmod +x reminder.py
-```
+# Choose installation directory (default: ~/.local/bin)
+read -p "Enter installation directory (press Enter for default ~/.local/bin): " INSTALL_DIR
+INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 
-3. Set up the alias by adding this line to your `~/.zshrc`:
-```bash
-alias remind="python3 /full/path/to/reminder.py"
-```
-Replace `/full/path/to/` with the actual path to where you cloned the repository.
+# Create directory if it doesn't exist
+mkdir -p "$INSTALL_DIR"
 
-4. Reload your zsh configuration:
-```bash
+# Download the reminder script
+curl -s https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/reminder.py > "$INSTALL_DIR/reminder.py"
+
+# Make the script executable
+chmod +x "$INSTALL_DIR/reminder.py"
+
+# Add to PATH and create alias in your shell configuration
+echo -e "\n# Terminal Reminder\nexport PATH=\"\$PATH:$INSTALL_DIR\"\nalias remind=\"python3 $INSTALL_DIR/reminder.py\"" >> ~/.zshrc
+
+# Reload shell configuration
 source ~/.zshrc
+
+# Confirm installation
+echo "Installation complete! Script installed in $INSTALL_DIR. Try running: remind"
 ```
 
 ## Requirements
