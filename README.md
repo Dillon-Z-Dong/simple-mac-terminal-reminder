@@ -26,7 +26,7 @@ source ~/.zshrc
 
 ## Usage
 
-Once installed, you can create reminders from anywhere in your terminal:
+Once installed, you can create reminders from your terminal:
 
 1. Type `remind` in your terminal
 2. Enter the time duration when prompted:
@@ -38,7 +38,7 @@ Once installed, you can create reminders from anywhere in your terminal:
 Example:
 ```bash
 $ remind
-Enter time (e.g., '5m' for 5 minutes, '30s' for 30 seconds): 2m
-Enter reminder message: Check the laundry
-Reminder set for 2.0 minutes from now
+Enter time (e.g., '5m' for 5 minutes, '30s' for 30 seconds): 15m
+Enter reminder message: Check the oven
+Reminder set for 15.0 minutes from now
 ```
