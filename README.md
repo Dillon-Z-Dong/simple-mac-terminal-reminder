@@ -121,19 +121,24 @@ options:
                         sound effect to play
 ```
 
-Examples with all options:
-```bash
-# Full example with all options
-$ remind 5m30s "Check pizza in oven" -v loud -s Ping
+Examples:
 
-# Interactive mode with help
+Quick time + message input:
+```bash
+$ remind 10m "Give the bunnies a treat 🥕"
+```
+
+Command line with all options:
+```bash
+$ remind 5m30s "Check pizza in oven" -v loud -s Ping
+```
+
+Interactive mode with help:
+```bash
 $ remind
 Time (default ➜ 5m0s): ?
 Time can be specified in several formats:
 - Minutes: 5 (same as 5m)
 - Minutes and seconds: 5m30s
 - Seconds only: 30s
-
-# Using defaults with just a custom message
-$ remind 10m "Give the bunnies a treat 🥕"
 ```
