@@ -88,38 +88,6 @@ source ~/.zshrc
 echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
 ```
 
-## Details
-
-### Time Formats
-- Minutes only: `5` or `5m`
-- Seconds only: `30s`
-- Minutes and seconds: `5m30s`
-- Default: `5m0s`
-
-### Sound Options
-Available MacOS built-in sounds:
-- Blow, Bottle, Frog, Funk, Glass, Hero
-- Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink
-- Use `random` to let the system choose (default)
-
-### Volume Levels
-- `loud`: Maximum volume
-- `normal`: Medium volume (default)
-- `quiet`: Low volume
-- `none`: Muted
-
-### Command Line Arguments
-```bash
-usage: remind [-h] [-v {loud,normal,quiet,none}] [-s SOUND] [time] [message]
-
-options:
-  -h, --help            show this help message
-  -v, --volume {loud,normal,quiet,none}
-                        sound volume level
-  -s, --sound {Blow,Bottle,Frog,Funk,Glass,Hero,Morse,Ping,Pop,Purr,Sosumi,Submarine,Tink,random}
-                        sound effect to play
-```
-
 ## Examples:
 
 Quick time + message input:
@@ -183,4 +151,16 @@ Press Ctrl+C to cancel
 ──────────────────────────────────────────────────
 
 [███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:18 remaining (⏰ 07:13:14 PM)
+```
+
+## Command Line Arguments
+```bash
+usage: remind [-h] [-v {loud,normal,quiet,none}] [-s SOUND] [time] [message]
+
+options:
+  -h, --help            show this help message
+  -v, --volume {loud,normal,quiet,none}
+                        sound volume level
+  -s, --sound {Blow,Bottle,Frog,Funk,Glass,Hero,Morse,Ping,Pop,Purr,Sosumi,Submarine,Tink,random}
+                        sound effect to play
 ```
