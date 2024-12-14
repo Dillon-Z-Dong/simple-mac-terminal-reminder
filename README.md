@@ -27,7 +27,7 @@ $ remind 15m "Check the laundry!" -s Purr -v loud
 ```
 
 ### Example Output
-When you set a reminder, you'll see a progress display in your terminal:
+When you set a reminder, you'll see a progress bar:
 ```
 ──────────────────────────────────────────────────────
 🕰️  Reminder set at 10:30:15 AM for 15m 00s from now
@@ -55,7 +55,6 @@ When the timer completes, you'll see a popup which you can dismiss or snooze for
 ```
 
 ## Installation
-Copy paste these commands in your terminal:
 
 ### Step 1: Create installation directory
 ```bash
