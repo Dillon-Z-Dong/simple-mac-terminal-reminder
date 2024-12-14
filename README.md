@@ -146,7 +146,7 @@ Time can be specified in several formats:
 Time (default ➜ 5m0s): 2m30s
 Message (default ➜ 2m 30s reminder): ?
 
-Enter any text you'd like to see when the reminder pops up.
+Enter any text you would like to see when the reminder pops up.
 This will be displayed in both the notification and dialog box.
         
 Message (default ➜ 2m 30s reminder): 🐰🐰🐰                             
