@@ -54,6 +54,10 @@ When the timer completes, you'll see a popup which you can dismiss or snooze for
 ╚══════════════════════════════════════════╝
 ```
 
+## Requirements
+- macOS (uses AppleScript for notifications)
+- Python 3.x
+
 ## Installation
 
 ### Step 1: Create installation directory
@@ -83,10 +87,6 @@ source ~/.zshrc
 ```bash
 echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
 ```
-
-## Requirements
-- macOS (uses AppleScript for notifications)
-- Python 3.x
 
 ## Details
 
