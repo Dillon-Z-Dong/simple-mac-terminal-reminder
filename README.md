@@ -1,5 +1,5 @@
 # simple-mac-terminal-reminder
-A python script (reminder.py) callable from the command line that creates a custom, timed MacOS system notification based on your inputs.
+A command line tool that creates a custom, timed MacOS system notification based on your inputs.
 
 ## Usage
 ### Setting a reminder
