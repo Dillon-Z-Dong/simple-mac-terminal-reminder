@@ -60,28 +60,6 @@ def parse_time(time_input):
     except ValueError:
         raise ValueError("Invalid time format")
 
-def show_help(prompt_type):
-    """Show detailed help for different input types"""
-    help_text = {
-        'time': """
-Time can be specified in several formats:
-- Minutes: 5 (same as 5m)
-- Minutes and seconds: 5m30s
-- Seconds only: 30s
-        """,
-        'sound': f"""
-Available sounds: {', '.join(AVAILABLE_SOUNDS)}
-Enter 'random' to let the system choose one for you.
-        """,
-        'volume': """
-Volume levels:
-- loud: Maximum volume
-- normal: Medium volume
-- quiet: Low volume
-- none: Muted
-        """
-    }
-    print(help_text.get(prompt_type, "No help available for this option"))
 
 def get_input_with_default(prompt, default, help_type=None):
     """Get user input with a default value and help option"""
@@ -124,8 +102,8 @@ def get_input(args=None):
     else:
         default_msg = f"{remaining_seconds} second reminder"
     
-    # Get remaining inputs with help options
-    message = get_input_with_default("Message", default_msg)
+    # Get message with help option
+    message = get_input_with_default("Message", default_msg, "message")
     
     # Get sound first, then volume
     sound = get_input_with_default("Sound", "random", "sound").lower()
@@ -144,6 +122,33 @@ def get_input(args=None):
         volume = 'normal'
         
     return seconds, message, volume, sound
+
+def show_help(prompt_type):
+    """Show detailed help for different input types"""
+    help_text = {
+        'time': """
+Time can be specified in several formats:
+- Minutes: 5 (same as 5m)
+- Minutes and seconds: 5m30s
+- Seconds only: 30s
+        """,
+        'sound': f"""
+Available sounds: {', '.join(AVAILABLE_SOUNDS)}
+Enter 'random' to let the system choose one for you.
+        """,
+        'volume': """
+Volume levels:
+- loud: Maximum volume
+- normal: Medium volume
+- quiet: Low volume
+- none: Muted
+        """,
+        'message': """
+Enter any text you'd like to see when the reminder pops up.
+This will be displayed in both the notification and dialog box.
+        """
+    }
+    print(help_text.get(prompt_type, "No help available for this option"))
 
 def format_time_remaining(seconds):
     """Format remaining seconds into MM:SS format"""

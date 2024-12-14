@@ -135,9 +135,47 @@ $ remind 15m30s "Check pizza in oven" -v loud -s Ping
 Interactive mode with help:
 ```bash
 $ remind
+📋 Reminder Setup (Enter ➜ default, ? ➜ help)
 Time (default ➜ 5m0s): ?
+
 Time can be specified in several formats:
 - Minutes: 5 (same as 5m)
 - Minutes and seconds: 5m30s
 - Seconds only: 30s
+        
+Time (default ➜ 5m0s): 2m30s
+Message (default ➜ 2m 30s reminder): ?
+
+Enter any text you'd like to see when the reminder pops up.
+This will be displayed in both the notification and dialog box.
+        
+Message (default ➜ 2m 30s reminder): 🐰🐰🐰                             
+Sound (default ➜ random): ?
+
+Available sounds: Blow, Bottle, Frog, Funk, Glass, Hero, Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink
+Enter 'random' to let the system choose one for you.
+        
+Sound (default ➜ random): Frog
+Volume (default ➜ normal): ?
+
+Volume levels:
+- loud: Maximum volume
+- normal: Medium volume
+- quiet: Low volume
+- none: Muted
+        
+Volume (default ➜ normal): loud
+
+──────────────────────────────────────────────────
+
+🕰️  Reminder set at 07:02:28 PM for 2m 30s from now
+⏰ Will ping at 07:04:58 PM
+💬 Message: "🐰🐰🐰"
+🔊 Sound: Frog (Volume: loud)
+
+───────────────────────── Controls ────────────────
+Press Ctrl+C to cancel
+──────────────────────────────────────────────────
+
+[██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:20 remaining (⏰ 07:04:58 PM)
 ```
