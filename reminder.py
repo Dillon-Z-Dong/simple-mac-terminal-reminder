@@ -151,7 +151,6 @@ Volume levels:
         """,
         'message': """
 Enter any text you'd like to see when the reminder pops up.
-This will be displayed in both the notification and dialog box.
         """
     }
     print(help_text.get(prompt_type, "No help available for this option"))
