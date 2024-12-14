@@ -1,7 +1,7 @@
 # simple-mac-terminal-reminder
 A command line tool that creates a custom, timed MacOS system notification based on your inputs.
 
-## You can set a reminder via the interactive prompt or command line arguments:
+## How to set a reminder:
 
 #### 1. Interactive prompt
 ```bash
