@@ -24,7 +24,9 @@ $ remind 15m "Check the laundry!"
 $ remind 15m "Check the laundry!" -s Purr -v loud
 ```
 
-### When you set a reminder, you'll see a progress bar:
+### Reminder Display:
+
+Once your reminder is set, the relevant info will be displayed in the terminal. The tab running the reminder will be temporarily renamed to show the reminder info.
 ```
 ──────────────────────────────────────────────────────
 🕰️  Reminder set at 10:30:15 AM for 15m 00s from now
@@ -38,12 +40,13 @@ Press Ctrl+C to cancel
 [██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 09:15 remaining (⏰ 10:45:15 AM)
 ```
 
-### When the timer completes, you'll see a popup which you can dismiss or snooze for 5 min:
+When the timer completes, your sound will play, and you'll get a popup above all active windows which you can dismiss or snooze for 5 minutes. Snoozing will automatically launch another ```reminder``` instance in the same tab. The number of snoozes will be displayed in the info and the popup.
+
 ```
 ╔══════════════ 🕰️ Reminder! ══════════════╗
 ║ ⌛️ 15m00s                                ║
 ║ 🕐 Current time: 10:45 AM                ║
-║ 💤 Snoozed 2 times                       ║
+║ 💤 Snoozed 1 time                        ║
 ║                                          ║
 ║ Check the laundry!                       ║
 ║                                          ║
