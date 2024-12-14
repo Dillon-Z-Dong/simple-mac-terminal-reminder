@@ -130,7 +130,7 @@ $ remind 10m "Give the bunnies a treat 🥕"
 
 Command line with all options:
 ```bash
-$ remind 5m30s "Check pizza in oven" -v loud -s Ping
+$ remind 15m30s "Check pizza in oven" -v loud -s Ping
 ```
 
 Interactive mode with help:
