@@ -120,7 +120,7 @@ options:
                         sound effect to play
 ```
 
-Examples:
+## Examples:
 
 Quick time + message input:
 ```bash
@@ -135,7 +135,9 @@ $ remind 15m30s "Check pizza in oven" -v loud -s Ping
 Interactive mode with help:
 ```bash
 $ remind
+──────────────────────────────────────────────────
 📋 Reminder Setup (Enter ➜ default, ? ➜ help)
+──────────────────────────────────────────────────
 Time (default ➜ 5m0s): ?
 
 Time can be specified in several formats:
@@ -144,18 +146,21 @@ Time can be specified in several formats:
 - Seconds only: 30s
         
 Time (default ➜ 5m0s): 2m30s
+──────────────────────────────────────────────────
 Message (default ➜ 2m 30s reminder): ?
 
 Enter any text you would like to see when the reminder pops up.
 This will be displayed in both the notification and dialog box.
         
-Message (default ➜ 2m 30s reminder): 🐰🐰🐰                             
+Message (default ➜ 2m 30s reminder): 🐰🐰🐰
+──────────────────────────────────────────────────
 Sound (default ➜ random): ?
 
 Available sounds: Blow, Bottle, Frog, Funk, Glass, Hero, Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink
 Enter 'random' to let the system choose one for you.
         
-Sound (default ➜ random): Frog
+Sound (default ➜ random): frog
+──────────────────────────────────────────────────
 Volume (default ➜ normal): ?
 
 Volume levels:
@@ -164,18 +169,19 @@ Volume levels:
 - quiet: Low volume
 - none: Muted
         
-Volume (default ➜ normal): loud
+Volume (default ➜ normal):       
+──────────────────────────────────────────────────
 
 ──────────────────────────────────────────────────
 
-🕰️  Reminder set at 07:02:28 PM for 2m 30s from now
-⏰ Will ping at 07:04:58 PM
+🕰️  Reminder set at 07:10:44 PM for 2m 30s from now
+⏰ Will ping at 07:13:14 PM
 💬 Message: "🐰🐰🐰"
-🔊 Sound: Frog (Volume: loud)
+🔊 Sound: Frog (Volume: normal)
 
 ───────────────────────── Controls ────────────────
 Press Ctrl+C to cancel
 ──────────────────────────────────────────────────
 
-[██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:20 remaining (⏰ 07:04:58 PM)
+[███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:18 remaining (⏰ 07:13:14 PM)
 ```

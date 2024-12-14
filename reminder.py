@@ -86,7 +86,9 @@ def get_input(args=None):
         )
     
     # Interactive input mode
+    print("─" * 50)
     print("📋 Reminder Setup (Enter ➜ default, ? ➜ help)")
+    print("─" * 50)
     
     # Get time input
     time_input = get_input_with_default("Time", "5m0s", "time").strip()
@@ -102,9 +104,11 @@ def get_input(args=None):
     else:
         default_msg = f"{remaining_seconds} second reminder"
     
+    print("─" * 50)
     # Get message with help option
     message = get_input_with_default("Message", default_msg, "message")
     
+    print("─" * 50)
     # Get sound first, then volume
     sound = get_input_with_default("Sound", "random", "sound").lower()
     if sound == "random":
@@ -116,11 +120,13 @@ def get_input(args=None):
         # Find the correct case from AVAILABLE_SOUNDS
         sound = next(s for s in AVAILABLE_SOUNDS if s.lower() == sound.lower())
     
+    print("─" * 50)
     volume = get_input_with_default("Volume", "normal", "volume").lower()
     if volume not in SOUND_VOLUMES:
         print("Invalid volume level. Using normal")
         volume = 'normal'
-        
+    
+    print("─" * 50)    
     return seconds, message, volume, sound
 
 def show_help(prompt_type):
