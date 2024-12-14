@@ -1,9 +1,7 @@
 # simple-mac-terminal-reminder
 A command line tool that creates a custom, timed MacOS system notification based on your inputs.
 
-## Usage
-### Setting a reminder
-You can set reminders in two ways:
+## You can set a reminder via the interactive prompt or command line arguments:
 
 #### 1. Interactive prompt
 ```bash
@@ -26,8 +24,7 @@ $ remind 15m "Check the laundry!"
 $ remind 15m "Check the laundry!" -s Purr -v loud
 ```
 
-### Example Output
-When you set a reminder, you'll see a progress bar:
+### When you set a reminder, you'll see a progress bar:
 ```
 ──────────────────────────────────────────────────────
 🕰️  Reminder set at 10:30:15 AM for 15m 00s from now
@@ -41,7 +38,7 @@ Press Ctrl+C to cancel
 [██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 09:15 remaining (⏰ 10:45:15 AM)
 ```
 
-When the timer completes, you'll see a popup which you can dismiss or snooze for 5 min:
+### When the timer completes, you'll see a popup which you can dismiss or snooze for 5 min:
 ```
 ╔══════════════ 🕰️ Reminder! ══════════════╗
 ║ ⌛️ 15m00s                                ║
@@ -55,10 +52,11 @@ When the timer completes, you'll see a popup which you can dismiss or snooze for
 ```
 
 ## Requirements
-- macOS (uses AppleScript for notifications)
-- Python 3.x
+- macOS (with any Python 3.x installation, e.g., the OS default)
 
 ## Installation
+
+Copy paste these lines in your terminal:
 
 ### Step 1: Create installation directory
 ```bash
@@ -88,7 +86,7 @@ source ~/.zshrc
 echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
 ```
 
-## Examples:
+## More usage examples:
 
 Quick time + message input:
 ```bash
@@ -153,7 +151,7 @@ Press Ctrl+C to cancel
 [███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:18 remaining (⏰ 07:13:14 PM)
 ```
 
-## Command Line Arguments
+### Command Line Arguments
 ```bash
 usage: remind [-h] [-v {loud,normal,quiet,none}] [-s SOUND] [time] [message]
 
