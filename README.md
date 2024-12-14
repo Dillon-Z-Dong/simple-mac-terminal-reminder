@@ -90,12 +90,12 @@ echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALI
 
 Quick time + message input:
 ```bash
-$ remind 10m "Give the bunnies a treat 🥕"
+$ remind 15m "Check pizza in oven"
 ```
 
 Command line with all options:
 ```bash
-$ remind 15m30s "Check pizza in oven" -v loud -s Ping
+$ remind 10m30s "Give the bunnies a treat 🥕" -v quiet -s Funk
 ```
 
 Interactive mode with help:
