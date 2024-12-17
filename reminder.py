@@ -60,6 +60,16 @@ def parse_time(time_input):
     except ValueError:
         raise ValueError("Invalid time format")
 
+def generate_default_message(seconds):
+    """Generate default message based on time duration"""
+    minutes = int(seconds // 60)
+    remaining_seconds = int(seconds % 60)
+    if minutes > 0 and remaining_seconds > 0:
+        return f"{minutes}m {remaining_seconds}s reminder"
+    elif minutes > 0:
+        return f"{minutes} minute reminder"
+    else:
+        return f"{remaining_seconds} second reminder"
 
 def get_input_with_default(prompt, default, help_type=None):
     """Get user input with a default value and help option"""
@@ -78,9 +88,12 @@ def get_random_sound():
 def get_input(args=None):
     """Get time and message input from user or command line"""
     if args:
+        seconds = parse_time(args.time)
+        # Generate default message if none provided
+        message = args.message if args.message else generate_default_message(seconds)
         return (
-            parse_time(args.time),
-            args.message,
+            seconds,
+            message,
             args.volume,
             args.sound if args.sound != 'random' else get_random_sound()
         )
@@ -95,14 +108,7 @@ def get_input(args=None):
     seconds = parse_time(time_input)
     
     # Generate default message based on time
-    minutes = int(seconds // 60)
-    remaining_seconds = int(seconds % 60)
-    if minutes > 0 and remaining_seconds > 0:
-        default_msg = f"{minutes}m {remaining_seconds}s reminder"
-    elif minutes > 0:
-        default_msg = f"{minutes} minute reminder"
-    else:
-        default_msg = f"{remaining_seconds} second reminder"
+    default_msg = generate_default_message(seconds)
     
     print("─" * 50)
     # Get message with help option
@@ -261,8 +267,8 @@ def create_reminder(seconds, message, volume='normal', sound='Purr', snooze_coun
 
 def main():
     parser = argparse.ArgumentParser(description='Set a reminder with custom sound options')
-    parser.add_argument('time', nargs='?', help='Time duration (e.g., 5, 5m, 5m30s)')
-    parser.add_argument('message', nargs='?', help='Reminder message')
+    parser.add_argument('time', help='Time duration (e.g., 5, 5m, 5m30s)')
+    parser.add_argument('message', nargs='?', help='Reminder message (optional)')
     parser.add_argument('-v', '--volume', choices=['loud', 'normal', 'quiet', 'none'],
                       default='normal', help='Sound volume level')
     parser.add_argument('-s', '--sound', choices=AVAILABLE_SOUNDS + ['random'],
@@ -271,7 +277,7 @@ def main():
     args = parser.parse_args()
     
     try:
-        if args.time and args.message:
+        if args.time:
             seconds, message, volume, sound = get_input(args)
         else:
             seconds, message, volume, sound = get_input()
