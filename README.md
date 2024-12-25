@@ -119,7 +119,7 @@ Press Ctrl+C to cancel
 
 ## Installation
 
-Installation is easy. All you need is 
+Installation is easy. You can either run the setup script (which clones this repo and sets up an alias in .zshrc), or copy paste the installation lines manually.
 
 ### Requirements
 
@@ -135,9 +135,8 @@ curl -O https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-remi
 ```
 
 2. Make it executable and run:
-```bash
-chmod +x setup.py
-./setup.py
+```python
+python setup.py
 ```
 
 3. Follow the prompts to complete installation.
