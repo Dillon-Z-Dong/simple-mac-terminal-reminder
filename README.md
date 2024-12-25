@@ -1,47 +1,31 @@
 # simple-mac-terminal-reminder
-A command line tool that creates a custom, timed MacOS system notification based on your inputs.
 
-## Two ways to set a reminder:
+A simple command line tool for MacOS for reminding yourself of things in the near future. Just open up your default Terminal app, type a command like 
 
-#### 1. Interactive prompt
 ```bash
-$ remind
-📋 Reminder Setup (Enter ➜ default, ? ➜ help)
-Time (default ➜ 5m0s): 15
-Message (default ➜ 15 minute reminder): Check the laundry!
-Sound (default ➜ random): Purr
-Volume (default ➜ normal): loud
+$ remind 15m "Get pizza from oven" 
 ```
 
-Type `?` at any prompt to see available options and formats.
+and never worry about burnt pizza again!
 
-#### 2. Command line arguments
-```bash
-# Time and message
-$ remind 15m "Check the laundry!"
+## What a reminder looks like:
 
-# With sound and volume options
-$ remind 15m "Check the laundry!" -s Purr -v loud
-```
-
-## Reminder Display:
-
-Once your reminder is set, the terminal will show a progress bar + reminder details. You can cancel the reminder at any time with Ctrl+C.
+Once you set a reminder, a progress bar will appear in the tab where you ran the command. Feel free to tab away; you can check back on the bar at any time. You can also Ctrl+C to cancel the reminder.
 
 ```
 ──────────────────────────────────────────────────────
-🕰️  Reminder set at 10:30:15 AM for 15m 00s from now
-⏰ Will ping at 10:45:15 AM
-💬 Message: "Check the laundry!"
+🕰️  Reminder set at 6:30:15 PM for 15m 00s from now
+⏰ Will ping at 6:45:15 PM
+💬 Message: "Get pizza from oven!"
 🔊 Sound: Purr (Volume: loud)
 ─────────────── Controls ────────────────
 Press Ctrl+C to cancel
 ──────────────────────────────────────────────────────
 
-[██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 09:15 remaining (⏰ 10:45:15 AM)
+[██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 09:15 remaining (⏰ 6:45:15 PM)
 ```
 
-When the timer completes, your sound will play, and you'll get a popup with options to dismiss or snooze (+5 min). Snoozing will launch another ```reminder``` instance in the same tab, and the number of snoozes will tracked in the display/popup.
+Once the time is up, a sound will play and you'll get a popup (that appears above all other apps) with options to dismiss the reminder ("Got it") or snooze it (+5 min). Snoozing will launch another ```reminder``` instance in the same tab, and you can decide again in 5 min.
 
 ```
 ╔══════════════ 🕰️ Reminder! ══════════════╗
@@ -49,60 +33,37 @@ When the timer completes, your sound will play, and you'll get a popup with opti
 ║ 🕐 Current time: 10:45 AM                ║
 ║ 💤 Snoozed 1 time                        ║
 ║                                          ║
-║ Check the laundry!                       ║
+║ Respond to email!                        ║
 ║                                          ║
 ║             [Got it] [+5 min]            ║
 ╚══════════════════════════════════════════╝
 ```
 
-## Requirements
-- macOS (with any Python 3.x installation, e.g., the OS default)
+## How to set a reminder:
 
-## Installation
+#### 1. Command line arguments
 
-Copy paste these lines in your terminal:
+The quickest and easiest way to set a reminder is with command line arguments. Just open up your default Terminal app and enter the command.
 
-### Step 1: Create installation directory
+This will set a 1 minute timer with a default message "1 minute reminder"
 ```bash
-echo -n "Enter installation directory (press Enter for default ~/.local/bin): "
-read INSTALL_DIR
-INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
-mkdir -p "$INSTALL_DIR"
+$ remind 1
 ```
 
-### Step 2: Download and configure the script
+This will set a 3 minute 30 second timer with a custom message ("Green tea done steeping"):
 ```bash
-curl -s https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/reminder.py > "$INSTALL_DIR/reminder.py"
-chmod +x "$INSTALL_DIR/reminder.py"
+$ remind 3m30s "Green tea done steeping"
 ```
 
-### Step 3: Set up environment
+This will set a 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
 ```bash
-echo -n "Enter alias name (press Enter for default 'remind'): "
-read ALIAS_NAME
-ALIAS_NAME="${ALIAS_NAME:-remind}"
-echo -e "\n# Terminal Reminder\nexport PATH=\"\$PATH:$INSTALL_DIR\"\nalias $ALIAS_NAME=\"python3 $INSTALL_DIR/reminder.py\"" >> ~/.zshrc
-source ~/.zshrc
+$ remind 25m "Pomodoro 🍅" -s Funk -v quiet 
 ```
 
-### Step 4: Verify installation
-```bash
-echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
-```
+#### 2. Interactive prompt
 
-## More usage examples:
+You can also see all of the available options in interactive mode. To launch this, just type "remind" with no other arguments. Type `?` at any prompt for help.
 
-Quick time + message input:
-```bash
-$ remind 15m "Check pizza in oven"
-```
-
-Command line with all options:
-```bash
-$ remind 10m30s "Give the bunnies a treat 🥕" -v quiet -s Funk
-```
-
-Interactive mode with help:
 ```bash
 $ remind
 ──────────────────────────────────────────────────
@@ -155,14 +116,66 @@ Press Ctrl+C to cancel
 [███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 02:18 remaining (⏰ 07:13:14 PM)
 ```
 
-### Command Line Arguments
-```bash
-usage: remind [-h] [-v {loud,normal,quiet,none}] [-s SOUND] [time] [message]
 
-options:
-  -h, --help            show this help message
-  -v, --volume {loud,normal,quiet,none}
-                        sound volume level
-  -s, --sound {Blow,Bottle,Frog,Funk,Glass,Hero,Morse,Ping,Pop,Purr,Sosumi,Submarine,Tink,random}
-                        sound effect to play
+## Installation
+
+Installation is easy. All you need is 
+
+### Requirements
+
+- macOS (with any Python 3.x installation, e.g., the OS default)
+- Git (optional, for installation / easy updates)
+
+
+### Option 1: Using setup.py (recommended, requires Git)
+
+1. Download the setup script:
+```bash
+curl -O https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/setup.py
 ```
+
+2. Make it executable and run:
+```bash
+chmod +x setup.py
+./setup.py
+```
+
+3. Follow the prompts to complete installation.
+
+4. Source your .zshrc or restart your terminal:
+```bash
+source ~/.zshrc
+```
+
+### Option 2: Manual Installation (only requires MacOS)
+
+Copy paste these lines in your terminal:
+
+1. Create installation directory:
+```bash
+echo -n "Enter installation directory (press Enter for default ~/.local/bin): "
+read INSTALL_DIR
+INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
+mkdir -p "$INSTALL_DIR"
+```
+
+2. Download and configure the script:
+```bash
+curl -s https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/reminder.py > "$INSTALL_DIR/reminder.py"
+chmod +x "$INSTALL_DIR/reminder.py"
+```
+
+3. Set up environment:
+```bash
+echo -n "Enter alias name (press Enter for default 'remind'): "
+read ALIAS_NAME
+ALIAS_NAME="${ALIAS_NAME:-remind}"
+echo -e "\n# Terminal Reminder\nexport PATH=\"\$PATH:$INSTALL_DIR\"\nalias $ALIAS_NAME=\"python3 $INSTALL_DIR/reminder.py\"" >> ~/.zshrc
+source ~/.zshrc
+```
+
+4. Verify installation:
+```bash
+echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
+```
+
