@@ -119,39 +119,35 @@ Press Ctrl+C to cancel
 
 ## Installation
 
-Installation is easy. First clone the repository, then run the setup script which will configure your environment.
+Installation is easy. Just clone the repository to your desired installation location and run the setup script.
 
 ### Requirements
 
-- macOS
-- Git (not required for manual installation)
+- macOS 
+- Git (required only for installation)
 
 ### Installation Steps
 
-1. Clone the repository:
+1. Clone the repository to your desired installation location (e.g. your home directory):
 ```bash
-# You can clone it anywhere you like. Here are some common options:
-cd ~/.local/bin  # default location
-# OR
-cd ~/Documents   # documents folder
-# OR
-cd ~            # home directory
+cd ~ 
 
 # Clone the repository
 git clone https://github.com/Dillon-Z-Dong/simple-mac-terminal-reminder.git
+
+# Enter the repository directory
 cd simple-mac-terminal-reminder
 ```
 
-2. Run the setup script and follow the prompts to set your installation directory and alias:
+2. Run the setup script:
 ```bash
 python3 setup.py
 ```
 The setup script will:
-- Ask for your preferred installation directory (defaults to ~/.local/bin)
+- Make the reminder script executable
 - Ask for your preferred alias name (defaults to 'remind')
-- Copy the reminder script to your chosen installation directory
-- Make the script executable
-- Add the necessary PATH and alias to your .zshrc
+- Add the installation directory to your PATH
+- Create the alias in your .zshrc
 
 3. Source your .zshrc or restart your terminal:
 ```bash
@@ -159,33 +155,4 @@ source ~/.zshrc
 ```
 
 4. Try running the alias you set!
-
-The repository directory can be safely deleted after installation if desired.
-
-### Manual Installation
-
-If you prefer to set everything up manually, you can:
-
-1. Create your chosen installation directory:
-```bash
-mkdir -p ~/.local/bin  # or your preferred location
-```
-
-2. Copy the reminder script and make it executable:
-```bash
-cp reminder.py ~/.local/bin/
-chmod +x ~/.local/bin/reminder.py
-```
-
-3. Add the following to your ~/.zshrc:
-```bash
-# Terminal Reminder
-export PATH="$PATH:$HOME/.local/bin"
-alias remind="python3 $HOME/.local/bin/reminder.py"
-```
-
-4. Source your .zshrc:
-```bash
-source ~/.zshrc
-```
 
