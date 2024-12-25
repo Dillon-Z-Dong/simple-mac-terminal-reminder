@@ -119,62 +119,73 @@ Press Ctrl+C to cancel
 
 ## Installation
 
-Installation is easy. You can either run the setup script (which clones this repo and sets up an alias in .zshrc), or copy paste the installation lines manually.
+Installation is easy. First clone the repository, then run the setup script which will configure your environment.
 
 ### Requirements
 
-- macOS (with any Python 3.x installation, e.g., the OS default)
-- Git (optional, for installation / easy updates)
+- macOS
+- Git (not required for manual installation)
 
+### Installation Steps
 
-### Option 1: Using setup.py (recommended, requires Git)
-
-1. Download the setup script:
+1. Clone the repository:
 ```bash
-curl -O https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/setup.py
+# You can clone it anywhere you like. Here are some common options:
+cd ~/.local/bin  # default location
+# OR
+cd ~/Documents   # documents folder
+# OR
+cd ~            # home directory
+
+# Clone the repository
+git clone https://github.com/Dillon-Z-Dong/simple-mac-terminal-reminder.git
+cd simple-mac-terminal-reminder
 ```
 
 2. Run the setup script and follow the prompts to set your installation directory and alias:
-```python
-python setup.py
+```bash
+python3 setup.py
 ```
+The setup script will:
+- Ask for your preferred installation directory (defaults to ~/.local/bin)
+- Ask for your preferred alias name (defaults to 'remind')
+- Copy the reminder script to your chosen installation directory
+- Make the script executable
+- Add the necessary PATH and alias to your .zshrc
 
-3. Source your .zshrc or restart your terminal
+3. Source your .zshrc or restart your terminal:
 ```bash
 source ~/.zshrc
 ```
 
 4. Try running the alias you set!
 
-### Option 2: Manual Installation (only requires MacOS)
+The repository directory can be safely deleted after installation if desired.
 
-Copy paste these lines in your terminal:
+### Manual Installation
 
-1. Create installation directory:
+If you prefer to set everything up manually, you can:
+
+1. Create your chosen installation directory:
 ```bash
-echo -n "Enter installation directory (press Enter for default ~/.local/bin): "
-read INSTALL_DIR
-INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
-mkdir -p "$INSTALL_DIR"
+mkdir -p ~/.local/bin  # or your preferred location
 ```
 
-2. Download and configure the script:
+2. Copy the reminder script and make it executable:
 ```bash
-curl -s https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/reminder.py > "$INSTALL_DIR/reminder.py"
-chmod +x "$INSTALL_DIR/reminder.py"
+cp reminder.py ~/.local/bin/
+chmod +x ~/.local/bin/reminder.py
 ```
 
-3. Set up environment:
+3. Add the following to your ~/.zshrc:
 ```bash
-echo -n "Enter alias name (press Enter for default 'remind'): "
-read ALIAS_NAME
-ALIAS_NAME="${ALIAS_NAME:-remind}"
-echo -e "\n# Terminal Reminder\nexport PATH=\"\$PATH:$INSTALL_DIR\"\nalias $ALIAS_NAME=\"python3 $INSTALL_DIR/reminder.py\"" >> ~/.zshrc
+# Terminal Reminder
+export PATH="$PATH:$HOME/.local/bin"
+alias remind="python3 $HOME/.local/bin/reminder.py"
+```
+
+4. Source your .zshrc:
+```bash
 source ~/.zshrc
-```
-
-4. Verify installation:
-```bash
-echo "Installation complete! Script installed in $INSTALL_DIR. Try running: $ALIAS_NAME"
 ```
 
