@@ -1,6 +1,6 @@
 # simple-mac-terminal-reminder
 
-A simple command line tool for MacOS for reminding yourself of things in the near future. Just open up your default Terminal app, type a command like 
+A simple command line tool for MacOS for reminding yourself of things in the near future. Just open up your default Terminal app, type a command such as:
 
 ```bash
 $ remind 15m "Get pizza from oven" 
@@ -43,9 +43,9 @@ Once the time is up, a sound will play and you'll get a popup (that appears abov
 
 #### 1. Command line arguments
 
-The quickest and easiest way to set a reminder is with command line arguments (run from the default MacOS Terminal app). Some examples:
+The quickest and easiest way to set a reminder is with command line arguments. Some examples:
 
-Set a 1 minute timer with a default message ("1 minute reminder"):
+Make a 1 minute timer (with a default message):
 ```bash
 $ remind 1
 ```
@@ -55,14 +55,14 @@ Set a 3 minute 30 second timer with a custom message ("Green tea done steeping")
 $ remind 3m30s "Green tea done steeping"
 ```
 
-Set a 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
+Create a 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
 ```bash
 $ remind 25m "Pomodoro 🍅" -s Funk -v quiet 
 ```
 
 #### 2. Interactive prompt
 
-You can also see all of the available options in interactive mode. To launch this, just type "remind" with no other arguments. Type `?` at any prompt for help.
+You can also see all of the available options in interactive mode. To launch this, just type "remind" (or whatever alias you chose during installation) with no other arguments. Type `?` at any prompt for help.
 
 ```bash
 $ remind
@@ -124,7 +124,7 @@ Installation is easy. Just clone the repository to your desired installation loc
 ### Requirements
 
 - macOS 
-- Git (required only for installation)
+- Git (required only for installation / updates)
 
 ### Installation Steps
 
