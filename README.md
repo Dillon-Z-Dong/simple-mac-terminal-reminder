@@ -130,12 +130,8 @@ Installation is easy. Just clone the repository to your desired installation loc
 
 1. Clone the repository to your desired installation location (e.g. your home directory):
 ```bash
-cd ~ 
-
-# Clone the repository
+cd ~ # Change this to any installation directory you want
 git clone https://github.com/Dillon-Z-Dong/simple-mac-terminal-reminder.git
-
-# Enter the repository directory
 cd simple-mac-terminal-reminder
 ```
 
