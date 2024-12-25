@@ -134,17 +134,17 @@ Installation is easy. You can either run the setup script (which clones this rep
 curl -O https://raw.githubusercontent.com/Dillon-Z-Dong/simple-mac-terminal-reminder/main/setup.py
 ```
 
-2. Make it executable and run:
+2. Run the setup script and follow the prompts to set your installation directory and alias:
 ```python
 python setup.py
 ```
 
-3. Follow the prompts to complete installation.
-
-4. Source your .zshrc or restart your terminal:
+3. Source your .zshrc or restart your terminal
 ```bash
 source ~/.zshrc
 ```
+
+4. Try running the alias you set!
 
 ### Option 2: Manual Installation (only requires MacOS)
 

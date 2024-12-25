@@ -267,7 +267,7 @@ def create_reminder(seconds, message, volume='normal', sound='Purr', snooze_coun
 
 def main():
     parser = argparse.ArgumentParser(description='Set a reminder with custom sound options')
-    parser.add_argument('time', help='Time duration (e.g., 5, 5m, 5m30s)')
+    parser.add_argument('time', nargs='?', help='Time duration (e.g., 5, 5m, 5m30s)')
     parser.add_argument('message', nargs='?', help='Reminder message (optional)')
     parser.add_argument('-v', '--volume', choices=['loud', 'normal', 'quiet', 'none'],
                       default='normal', help='Sound volume level')
@@ -277,10 +277,11 @@ def main():
     args = parser.parse_args()
     
     try:
-        if args.time:
-            seconds, message, volume, sound = get_input(args)
-        else:
+        # If no time argument is provided, go into interactive mode
+        if args.time is None:
             seconds, message, volume, sound = get_input()
+        else:
+            seconds, message, volume, sound = get_input(args)
         
         create_reminder(seconds, message, volume, sound)
     except KeyboardInterrupt:
