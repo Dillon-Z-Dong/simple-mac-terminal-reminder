@@ -43,19 +43,19 @@ Once the time is up, a sound will play and you'll get a popup (that appears abov
 
 #### 1. Command line arguments
 
-The quickest and easiest way to set a reminder is with command line arguments. Just open up your default Terminal app and enter a remind command. Examples:
+The quickest and easiest way to set a reminder is with command line arguments (run from the default MacOS Terminal app)
 
-A 1 minute timer with a default message "1 minute reminder"
+Set a 1 minute timer with a default message ("1 minute reminder"):
 ```bash
 $ remind 1
 ```
 
-A 3 minute 30 second timer with a custom message ("Green tea done steeping"):
+Set a 3 minute 30 second timer with a custom message ("Green tea done steeping"):
 ```bash
 $ remind 3m30s "Green tea done steeping"
 ```
 
-A 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
+Set a 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
 ```bash
 $ remind 25m "Pomodoro 🍅" -s Funk -v quiet 
 ```
