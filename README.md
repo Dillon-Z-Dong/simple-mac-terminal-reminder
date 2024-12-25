@@ -3,7 +3,7 @@
 A simple command line tool for MacOS for reminding yourself of things in the near future. Just open up your default Terminal app, type a command such as:
 
 ```bash
-$ remind 15m "Get pizza from oven" 
+remind 15m "Get pizza from oven" 
 ```
 
 and never worry about burnt pizza again!
@@ -47,17 +47,17 @@ The quickest and easiest way to set a reminder is with command line arguments. S
 
 Make a 1 minute timer (with a default message):
 ```bash
-$ remind 1
+remind 1
 ```
 
 Set a 3 minute 30 second timer with a custom message ("Green tea done steeping"):
 ```bash
-$ remind 3m30s "Green tea done steeping"
+remind 3m30s "Green tea done steeping"
 ```
 
 Create a 25 minute timer with a custom message ("Pomodoro 🍅"), sound ("Funk"), and volume ("quiet")
 ```bash
-$ remind 25m "Pomodoro 🍅" -s Funk -v quiet 
+remind 25m "Pomodoro 🍅" -s Funk -v quiet 
 ```
 
 #### 2. Interactive prompt
