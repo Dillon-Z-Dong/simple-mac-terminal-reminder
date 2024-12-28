@@ -25,7 +25,12 @@ Press Ctrl+C to cancel
 [██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 09:15 remaining (⏰ 6:45:15 PM)
 ```
 
-Once the time is up, a sound will play and you'll get a popup (that appears above all other apps) with options to dismiss the reminder ("Got it") or snooze it (+5 min). Snoozing will launch another ```reminder``` instance in the same tab, and you can decide again in 5 min.
+Once the time is up, a sound will play and you'll get a popup (that appears above all other apps) with three options:
+- "Got it" to dismiss the reminder
+- "+5 min" to snooze it for 5 minutes
+- "Repeat (+X)" to repeat the reminder for its original duration (where X is the original time you set)
+
+Choosing either snooze or repeat will launch another `reminder` instance in the same tab.
 
 ```
 ╔══════════════ 🕰️ Reminder! ══════════════╗
@@ -35,7 +40,7 @@ Once the time is up, a sound will play and you'll get a popup (that appears abov
 ║                                          ║
 ║ Respond to email!                        ║
 ║                                          ║
-║             [Got it] [+5 min]            ║
+║    [Got it] [+5 min] [Repeat (+15m)]     ║
 ╚══════════════════════════════════════════╝
 ```
 

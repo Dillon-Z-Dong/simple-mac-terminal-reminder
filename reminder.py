@@ -237,13 +237,16 @@ def create_reminder(seconds, message, volume='normal', sound='Purr', snooze_coun
         snooze_info = f"\\n💤 Snoozed 1 time"
     else:
         snooze_info = f"\\n💤 Snoozed {snooze_count} times"
+    
+    # Create button label for repeat option
+    repeat_label = f"+{int(seconds//60)}m" if seconds >= 60 else f"+{int(seconds)}s"
         
     apple_script_rich = f'''
     tell application "System Events"
         set theAlertText to "⌛️ {duration_str}\\n🕐 Current time: {current_time}{snooze_info}\\n\\n{message}"
         display dialog theAlertText ¬
             with title "🕰️ Reminder!" ¬
-            buttons {{"Got it", "+5 min"}} ¬
+            buttons {{"Got it", "+5 min", "Repeat ({repeat_label})"}} ¬
             default button "Got it" ¬
             with icon note
         set button_pressed to button returned of result
@@ -261,9 +264,12 @@ def create_reminder(seconds, message, volume='normal', sound='Purr', snooze_coun
     if volume != 'none':
         sound_thread.join()
     
-    # If +5 min was clicked, create a new reminder
-    if result.stdout.strip() == "+5 min":
+    # Handle button responses
+    button_pressed = result.stdout.strip()
+    if button_pressed == "+5 min":
         create_reminder(300, message, volume, sound, snooze_count + 1)
+    elif button_pressed == repeat_label:
+        create_reminder(seconds, message, volume, sound, snooze_count)
 
 def main():
     parser = argparse.ArgumentParser(description='Set a reminder with custom sound options')
